@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "AssignRoleToUser";
+}
+
+@model List<AssignRoleToUserModel>
+
+
+
+<div class="row">
+  
+    <div class="col-md-6 offset-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title text-center">Role Atama</h1>
+                <form asp-action="AssignRoleToUser" method="post">
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <div class="mb-3">
+                            <div class="mb-3 form-check">
+                                <input class="form-check-input" asp-for="@Model[i].Exist" type="checkbox">
+                                <label class="form-check-label" for="exampleCheck1">@Model[i].Name</label>
+                                <input type="hidden" asp-for="@Model[i].Name" />
+                                <input type="hidden" asp-for="@Model[i].Id" />
+                            </div>
+                        </div>
+                    }
+                    <div class="form-group mt-3">
+                        <input type="submit" value="Rol Ata" class="btn btn-primary"/>
+                    </div>
+                    <input type="text" hidden name="userId" value="@ViewBag.userId" />
+                </form>
+                <div class="text-center mt-3">
+                    <a asp-controller="Roles" asp-action="GetUserList">Kullanıcı Listesine Geri Dön</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

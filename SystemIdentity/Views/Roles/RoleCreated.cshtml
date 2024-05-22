@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewData["Title"] = "RoleCreated";
+}
+@model RoleCreatedViewModel
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title text-center">Role Oluşturma</h1>
+                <form asp-action="RoleCreated">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label">Name</label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group text-center mt-3">
+                        <button type="submit" class="btn btn-primary btn-lg">Create</button>
+                    </div>
+                </form>
+                <div class="text-center mt-3">
+                    <a asp-action="Index" class="btn btn-secondary">Role Listesine Geri Dön</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
